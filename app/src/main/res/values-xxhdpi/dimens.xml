@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="peas_top">110dp</dimen>
+    <dimen name="peas_left">-35dp</dimen>
+
+    <dimen name="orange_bottom">110dp</dimen>
+    <dimen name="orange_right">-35dp</dimen>
+
+    <dimen name="salad_left">-30dp</dimen>
+    <dimen name="salad_bottom">-40dp</dimen>
+</resources>
