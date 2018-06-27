@@ -22,7 +22,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Ui.EquipeActivity"></activity>
+        <activity
+            android:name=".Ui.EquipeActivity"
+            android:label="@string/team_Congo_buy_coin" />
+        <activity android:name=".Ui.SigneLogin.SignupActivity" />
+        <activity android:name=".Ui.SigneLogin.LoginActivity" />
+        <activity android:name=".Ui.SigneLogin.ResetPasswordActivity" />
+        <activity
+            android:name=".Ui.Settings.SettingsActivity"
+            android:label="@string/title_activity_settings" />
+        <activity android:name=".Ui.Settings.Settings" />
     </application>
 
 </manifest>

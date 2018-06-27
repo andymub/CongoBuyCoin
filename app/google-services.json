@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "894248597519",
+    "firebase_url": "https://congobuycoin.firebaseio.com",
+    "project_id": "congobuycoin",
+    "storage_bucket": "congobuycoin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:894248597519:android:00fcd0f7a8caf721",
+        "android_client_info": {
+          "package_name": "coin.congobuy.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "894248597519-1e17pi3gkskchjcsgnt1g5vhqo348gqv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "coin.congobuy.com",
+            "certificate_hash": "003c88c7295ba8c77df3be1faf296e32f2c4b5fb"
+          }
+        },
+        {
+          "client_id": "894248597519-fhf8tkqvlbhb5hdocbopt67baem477it.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARxrAlgDIh_HFvLTXqVO9wSjMk5EbTyGc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "894248597519-fhf8tkqvlbhb5hdocbopt67baem477it.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

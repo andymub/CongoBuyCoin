@@ -1,6 +1,8 @@
 package coin.congobuy.com.Ui;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.view.View;
@@ -17,9 +19,14 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import java.util.ArrayList;
 
 import coin.congobuy.com.R;
+import coin.congobuy.com.Ui.Settings.Settings;
+import coin.congobuy.com.Ui.SigneLogin.LoginActivity;
 import coin.congobuy.com.adapter.MyAdapter;
 import coin.congobuy.com.object.MyItem;
 
@@ -29,6 +36,9 @@ public class MainActivity extends AppCompatActivity
     ListView listOfSeller;
     // creating arraylist of MyItem type to set to adapter
     ArrayList<MyItem> myitems=new ArrayList<>();
+    private FirebaseAuth.AuthStateListener authListener;
+    private FirebaseAuth auth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +51,8 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,LoginActivity.class));
+
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
@@ -78,6 +90,24 @@ public class MainActivity extends AppCompatActivity
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //Perform click events
 
+                //get firebase auth instance
+                auth = FirebaseAuth.getInstance();
+
+                //get current user
+                final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+                authListener = new FirebaseAuth.AuthStateListener() {
+                    @Override
+                    public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                        FirebaseUser user = firebaseAuth.getCurrentUser();
+                        if (user == null) {
+                            // user auth state is changed - user is null
+                            // launch login activity
+                            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                            finish();
+                        }
+                    }
+                };
                 MyItem myitem=(MyItem)myitems.get(position);
                 TextView nom = view.findViewById(R.id.txt_title);
 
@@ -113,6 +143,7 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            startActivity(new Intent(MainActivity.this,Settings.class));
             return true;
         }
 
@@ -130,6 +161,8 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_vendeur) {
 
         } else if (id == R.id.nav_equipes) {
+            Intent intent_myTeam= new Intent(this,EquipeActivity.class);
+            startActivity(intent_myTeam);
 
         } else if (id == R.id.nav_mail) {
 

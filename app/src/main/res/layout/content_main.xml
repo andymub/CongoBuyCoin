@@ -5,9 +5,40 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/layer_list"
+    android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="coin.congobuy.com.Ui.MainActivity"
     tools:showIn="@layout/app_bar_main">
+
+    <TextView
+        android:id="@+id/txt_user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:text="Peibody@gmail.com"
+        android:textColor="@color/bg_register"
+        android:textStyle="bold" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorAccent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autoLink="none"
+        android:autoText="false"
+        android:background="@drawable/common_google_signin_btn_icon_dark_normal_background"
+        android:gravity="center"
+        android:text="Nos Ventes"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        android:textSize="18sp" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorAccent" />
 
     <ListView
         android:id="@+id/mainactivitylistview"
@@ -15,4 +46,6 @@
         android:layout_height="fill_parent"
         android:divider="@android:color/black"
         android:dividerHeight="2dp"></ListView>
+
+
 </LinearLayout>

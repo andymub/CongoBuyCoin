@@ -6,7 +6,7 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_commandes"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_commande"
             android:title="Mes Commandes" />
     </group>
 
@@ -18,15 +18,15 @@
                 android:title="Share" />
             <item
                 android:id="@+id/nav_vendeur"
-                android:icon="@drawable/ic_menu_gallery"
+                android:icon="@drawable/ic_seller"
                 android:title="Dévenir un vendeur" />
             <item
                 android:id="@+id/nav_equipes"
-                android:icon="@drawable/ic_menu_slideshow"
+                android:icon="@drawable/ic_team"
                 android:title="Notre équipes" />
             <item
                 android:id="@+id/nav_mail"
-                android:icon="@drawable/ic_menu_send"
+                android:icon="@drawable/ic_email_black_24dp"
                 android:title="Nous contacter" />
         </menu>
     </item>
