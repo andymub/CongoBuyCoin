@@ -74,7 +74,7 @@
                             android:layout_height="150dp"
                             android:layout_gravity="center_horizontal"
                             android:layout_marginTop="45dp"
-                            android:src="@mipmap/ic_launcher" />
+                            android:src="@drawable/queen_kat" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -117,7 +117,7 @@
                             android:layout_height="150dp"
                             android:layout_gravity="center_horizontal"
                             android:layout_marginTop="45dp"
-                            android:src="@mipmap/ic_launcher" />
+                            android:src="@drawable/enock" />
 
                         <TextView
                             android:id="@+id/textView4"
@@ -172,7 +172,7 @@
                             android:layout_height="150dp"
                             android:layout_gravity="center_horizontal"
                             android:layout_marginTop="45dp"
-                            android:src="@mipmap/ic_launcher" />
+                            android:src="@drawable/alaintums" />
 
                         <TextView
                             android:id="@+id/textView10"
@@ -191,7 +191,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
                             android:layout_marginTop="10dp"
-                            android:text="Business Devlopment"
+                            android:text="Business Developer"
                             android:textColor="#fff"
                             android:textSize="12sp"
                             android:textStyle="bold" />

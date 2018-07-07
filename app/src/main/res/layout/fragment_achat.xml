@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_google_signin_btn_text_light_default"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/view5"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorAccent" />
+
+    <TextView
+        android:id="@+id/txtMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/primary_light" />
+
+    <ImageView
+        android:id="@+id/imgMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
+
+    <View
+        android:id="@+id/view7"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorAccent" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:text="Choisir le Montant en Dollars ($)"
+            android:textColor="@color/whitedivider" />
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView12"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="12dp"
+            android:autofillHints="Choisir le montant"
+            android:background="@drawable/spinner_txt_back1"
+            android:drawSelectorOnTop="true"
+            android:entries="@array/spinner_sell"
+            android:textDirection="ltr" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/spinner"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:text="Equivalence en Bitcoin (B)"
+            android:textColor="@color/whitedivider" />
+
+        <EditText
+            android:id="@+id/editText_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView13"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:ems="10"
+            android:enabled="false"
+            android:hint="Bitcoin"
+            android:inputType="textPersonName"
+            android:text="0.1246555"
+            android:textColor="@color/colorAccent" />
+
+        <Button
+            android:id="@+id/btnachat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editText_price"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/buttonstyle"
+            android:text="Acheter" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="14dp"
+            android:gravity="center"
+            android:text="Un Numero AIRTELMoney Vous sera donné pour éffécruer le Virement"
+            android:textColor="@color/divider"
+            android:textDirection="firstStrong"
+            android:textSize="10sp" />
+
+    </RelativeLayout>
+
+</LinearLayout>

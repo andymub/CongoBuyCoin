@@ -5,9 +5,9 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_commandes"
+            android:id="@+id/nav_commandes_plus"
             android:icon="@drawable/ic_commande"
-            android:title="Mes Commandes" />
+            android:title="Commande supérieur à 500$" />
     </group>
 
     <item android:title="Communicate">
@@ -17,9 +17,9 @@
                 android:icon="@drawable/ic_menu_share"
                 android:title="Share" />
             <item
-                android:id="@+id/nav_vendeur"
+                android:id="@+id/nav_confiances"
                 android:icon="@drawable/ic_seller"
-                android:title="Dévenir un vendeur" />
+                android:title="Ils nous ont fait confiance" />
             <item
                 android:id="@+id/nav_equipes"
                 android:icon="@drawable/ic_team"

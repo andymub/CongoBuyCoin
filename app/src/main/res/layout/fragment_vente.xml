@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/lvente"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_google_signin_btn_text_light_default"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorAccent" />
+
+    <TextView
+        android:id="@+id/txtMainv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/primary_light" />
+
+    <ImageView
+        android:id="@+id/imgMainv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorAccent" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView12v"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="5dp"
+            android:text="Bitcoin à Vendre"
+            android:textColor="@color/common_google_signin_btn_text_dark_pressed" />
+
+        <TextView
+            android:id="@+id/textView12v2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/imageButton"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="5dp"
+            android:text="Notre Offre"
+            android:textColor="@color/common_google_signin_btn_text_dark_pressed" />
+
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/textView12v"
+            android:layout_marginLeft="5dp"
+            android:ems="10"
+            android:hint="0,125487"
+            android:inputType="number|numberDecimal"
+            android:textColor="@color/colorAccent" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/editText2"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="14dp"
+            android:layout_marginStart="14dp"
+            android:layout_toEndOf="@+id/editText2"
+            android:layout_toRightOf="@+id/editText2"
+            android:text="Bitcoin"
+            android:textColor="@color/common_google_signin_btn_text_dark_pressed"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/editText3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/editText2"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="26dp"
+            android:ems="10"
+            android:enabled="false"
+            android:hint="Notre offre"
+            android:inputType="number|numberDecimal"
+            android:textColor="@color/colorAccent" />
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/editText3"
+            android:layout_alignLeft="@+id/textView14"
+            android:layout_alignStart="@+id/textView14"
+            app:srcCompat="@drawable/ic_sync_black_24dp" />
+
+        <Button
+            android:id="@+id/btnvendre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtNumVente"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/buttonstyle"
+            android:text="Vendre" />
+
+        <EditText
+            android:id="@+id/txtNumVente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editText3"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:hint="Mon Num de Vente"
+            android:inputType="textPersonName"
+            android:textColor="@color/colorAccent" />
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnvendre"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Votre Num de vente recevra la somme en Dollars"
+            android:textColor="@color/common_google_signin_btn_text_dark_pressed" />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView15"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:text="AIRTEL Money-ORANGE Money-MPESA"
+            android:textColor="@color/common_google_signin_btn_text_dark_pressed" />
+
+    </RelativeLayout>
+
+</LinearLayout>

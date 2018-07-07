@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#a45d1b</color>
     <color name="colorPrimaryDark">#0ffa9221</color>
-    <color name="primary_light">#C5CAE9</color>
+    <color name="primary_light">#c5cae9</color>
     <color name="colorAccent">#FFEB3B</color>
     <color name="primary_text">#212121</color>
     <color name="primary_text_red">#fd0303</color>
@@ -10,7 +10,7 @@
     <color name="icons">#3a037c</color>
     <color name="divider">#BDBDBD</color>
     <color name="whitedivider">#ffffff</color>
-    <color name="green">#03fd59</color>
+    <color name="green">#4CAF50</color>
     <color name="white">#FFFFFF</color>
     <color name="yellow">#FFFF00</color>
     <color name="bg_login">#26ae90</color>
@@ -25,5 +25,9 @@
     <color name="btn_login_bg">#eceef1</color>
     <color name="lbl_name">#333333</color>
     <color name="btn_logut_bg">#ff6861</color>
+    <color name="blue">#303F9F</color>
+    <color name="purple">#673AB7</color>
+    <color name="cyan">#00BCD4</color>
+    <color name="orange">#e95609</color>
 
 </resources>

@@ -1,5 +1,6 @@
 package coin.congobuy.com.Ui.Settings;
 
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.content.Intent;
@@ -30,6 +31,7 @@ public class Settings extends AppCompatActivity {
     private ProgressBar progressBar;
     private FirebaseAuth.AuthStateListener authListener;
     private FirebaseAuth auth;
+    SharedPreferences sharedpreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -248,6 +250,11 @@ public class Settings extends AppCompatActivity {
     //sign out method
     public void signOut() {
         auth.signOut();
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+        editor.remove("name"); // will delete key name
+        editor.remove("email"); // will delete key email
+        editor.clear();
+        editor.commit();
     }
 
     @Override

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:orientation="horizontal"
+    android:padding="5dip"
+    app:layout_goneMarginBottom="2dp"
+    app:layout_goneMarginEnd="2dp"
+    app:layout_goneMarginStart="2dp"
+    app:layout_goneMarginTop="2dp">
+
+    <!--  ListRow Left sied Thumbnail image -->
+
+    <TextView
+        android:id="@+id/duration2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txtprice"
+        android:layout_alignParentRight="true"
+        android:gravity="right"
+        android:text="2/2"
+        android:textColor="#10bcc9"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        android:visibility="invisible" />
+
+    <LinearLayout
+        android:id="@+id/thumbnail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="5dip"
+        android:background="@android:color/transparent"
+        android:padding="3dip">
+
+        <ImageView
+            android:id="@+id/list_image"
+            android:layout_width="50dip"
+            android:layout_height="50dip"
+            android:background="@android:color/transparent"
+            android:src="@drawable/images" />
+
+    </LinearLayout>
+
+    <!-- Title Of Song-->
+    <TextView
+        android:id="@+id/txt_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/thumbnail"
+        android:layout_toRightOf="@+id/thumbnail"
+        android:text="Mr  Niel Mushaga"
+        android:textColor="#040404"
+        android:textSize="15dip"
+        android:textStyle="bold"
+        android:typeface="sans" />
+
+    <!-- Artist Name -->
+    <TextView
+        android:id="@+id/txtprice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_title"
+        android:layout_marginTop="1dip"
+        android:layout_toRightOf="@+id/thumbnail"
+        android:text="Mon stock :"
+        android:textColor="#343434"
+        android:textSize="12dip"
+        android:textStyle="bold" />
+
+    <!-- Rightend Duration -->
+    <TextView
+        android:id="@+id/txtstock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/txtpricecoin"
+        android:layout_marginLeft="3dp"
+        android:layout_toEndOf="@+id/txtprice"
+        android:layout_toLeftOf="@+id/imageView2"
+        android:layout_toRightOf="@+id/txtprice"
+        android:layout_toStartOf="@+id/imageView2"
+        android:text="0.01574 Bitcoin"
+        android:textColor="#343434"
+        android:textSize="12dip"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtprix"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtprice"
+        android:layout_toEndOf="@+id/thumbnail"
+        android:layout_toRightOf="@+id/thumbnail"
+        android:text="Prix :"
+        android:textColor="@color/primary_text_red"
+        android:textSize="12dip" />
+
+    <TextView
+        android:id="@+id/coindisponible3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtprix"
+        android:layout_toEndOf="@+id/thumbnail"
+        android:layout_toRightOf="@+id/thumbnail"
+        android:text="Min à vendre : "
+        android:textColor="@color/icons"
+        android:textSize="10sp" />
+
+    <TextView
+        android:id="@+id/txtpricecoin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtprice"
+        android:layout_toEndOf="@+id/txtprix"
+        android:layout_toLeftOf="@+id/imageView2"
+        android:layout_toRightOf="@+id/txtprix"
+        android:layout_toStartOf="@+id/imageView2"
+        android:gravity="fill_vertical"
+        android:paddingLeft="3dp"
+        android:text="0.001584btcoin/ 1$"
+        android:textColor="@color/primary_text_red"
+        android:textSize="12dip"
+        android:textStyle="bold" />
+
+    <!-- Rightend Arrow -->
+    <TextView
+        android:id="@+id/txtmin_to_buy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtpricecoin"
+        android:layout_marginRight="15dp"
+        android:layout_toEndOf="@+id/coindisponible3"
+        android:layout_toRightOf="@+id/coindisponible3"
+        android:gravity="fill_vertical"
+        android:paddingLeft="3dp"
+        android:text="20$"
+        android:textColor="@color/icons"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        android:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txt_title"
+        android:layout_alignTop="@+id/txtstock"
+        android:layout_toLeftOf="@+id/duration2"
+        android:layout_toStartOf="@+id/duration2"
+        android:src="@drawable/ic_start_one" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/thumbnail"
+        android:layout_toEndOf="@+id/txtmin_to_buy"
+        android:layout_toRightOf="@+id/txtmin_to_buy"
+        android:shadowColor="@color/colorAccent"
+        android:text="Clients satisfaits :  "
+        android:textColor="@android:color/background_dark"
+        android:textSize="8sp" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView5"
+        android:layout_toEndOf="@+id/textView5"
+        android:layout_toRightOf="@+id/textView5"
+        android:shadowColor="@color/colorAccent"
+        android:text="5"
+        android:textColor="@android:color/background_dark"
+        android:textSize="10sp" />
+
+</RelativeLayout>

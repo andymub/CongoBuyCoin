@@ -8,39 +8,39 @@
     <string name="slogan">Mon pays, mon achat,ma Cryptomonnaie</string>
     <string name="Coin_seller">Coin sellers</string>
     <string name="team_Congo_buy_coin">Team CongoBuyCoin</string>
-    <string name="teamtxt">Mon pays, mon achat, ma crypto, est une idée de quatre Congolais, Jeunes, ambitieux, prudents et sages.</string>
-    <string name="teamtxt1">Le but étant d\'avoir une plate-forme pouvant permettre d\'acheter des cryptosMonnai au Congo(RDC) grace à Airtelmoney, Mpesa, OrangeMoney et autres... Nourris par cet amour et passion d\'apporter une solution aussi petite soit-elle.</string>
+    <string name="teamtxt">Mon pays, mon achat, ma crypto, est une idée de quatre Congolais, Jeunes, ambitieux.</string>
+    <string name="teamtxt1">Le but étant d\'avoir une plate-forme pouvant permettre d\'Acheter et de Vendre une cryptosMonnai en R.D.Congo avec Airtelmoney, Mpesa, OrangeMoney et autres... Nourris par cet amour et passion d\'apporter une solution aussi petite soit-elle.</string>
     <string name="teamtxt2">Nous avons decider de creer CongoBuyCoin</string>
 
     <!--//login-->
-    <string name="action_sign_in_short">Register</string>
+    <string name="action_sign_in_short">S\'inscrire</string>
     <string name="email">Email</string>
-    <string name="minimum_password">Password too short, enter minimum 6 characters!</string>
-    <string name="auth_failed">Authentication failed, check your email and password or sign up</string>
-    <string name="change_email">Change Email</string>
-    <string name="change_password">Change Password</string>
-    <string name="send_password_reset_email">Send Password reset email</string>
-    <string name="remove_user">Remove user</string>
+    <string name="minimum_password">Mot de passe trop court, entrez au moins 6 caractères!</string>
+    <string name="auth_failed">L\'authentification a échoué, vérifiez votre adresse e-mail et votre mot de passe ou inscrivez-vous</string>
+    <string name="change_email">Changer Email</string>
+    <string name="change_password">Changer Password</string>
+    <string name="send_password_reset_email">Envoyer le mot de passe de réinitialisation</string>
+    <string name="remove_user">Supprimer son Compte</string>
     <string name="new_pass">New Password</string>
-    <string name="title_activity_profile">Firebase</string>
-    <string name="title_activity_login">Sign in</string>
+    <string name="title_activity_profile">Settings</string>
+    <string name="title_activity_login">Se connecter</string>
     <string name="hint_email">Email</string>
-    <string name="hint_password">Password</string>
-    <string name="hint_name">Fullname</string>
-    <string name="btn_login">LOGIN</string>
-    <string name="btn_link_to_register">Not a member? Get registered in Firebase now!</string>
-    <string name="btn_link_to_login">Already registered. Login Me!</string>
-    <string name="title_activity_reset_password">ResetPasswordActivity</string>
-    <string name="btn_forgot_password">Forgot your password?</string>
-    <string name="btn_reset_password">Reset Password</string>
+    <string name="hint_password">Mot de passe</string>
+    <string name="hint_name">Nom complet</string>
+    <string name="btn_login">S\'IDENTIFIER</string>
+    <string name="btn_link_to_register">Pas encore inscrit? Inscrivez-vous sur CongoBuyCoin maintenant!</string>
+    <string name="btn_link_to_login">Déjà enregistré. Identifiez-vous!</string>
+    <string name="title_activity_reset_password">Réinitialiser le mot de passe</string>
+    <string name="btn_forgot_password">Mot de passe oublié?</string>
+    <string name="btn_reset_password">Réinitialiser le mot de passe</string>
     <string name="btn_back"><![CDATA[<< Back]]></string>
-    <string name="hint_new_email">New Email</string>
-    <string name="btn_change">Change</string>
-    <string name="btn_send">Send</string>
+    <string name="hint_new_email">Nouveau Email</string>
+    <string name="btn_change">Changer</string>
+    <string name="btn_send">Envoyer</string>
     <string name="btn_remove">Remove</string>
-    <string name="btn_sign_out">Sign Out</string>
-    <string name="lbl_forgot_password">Forgot password?</string>
-    <string name="forgot_password_msg">We just need your registered Email Id to sent you password reset instructions.</string>
+    <string name="btn_sign_out">Déconnexion</string>
+    <string name="lbl_forgot_password">Mot de passe oublié?</string>
+    <string name="forgot_password_msg">Nous avons juste besoin de votre identifiant email enregistré pour vous envoyer les instructions de réinitialisation du mot de passe.</string>
     <string name="title_activity_settings">Settings</string>
 
     <!-- Strings related to Settings -->
@@ -49,8 +49,8 @@
     <string name="pref_header_general">General</string>
 
     <string name="pref_title_social_recommendations">Enable social recommendations</string>
-    <string name="pref_description_social_recommendations">Recommendations for people to contact
-        based on your message history
+    <string name="pref_description_social_recommendations">Recommandations pour les personnes à contacter
+        en fonction de l'historique de vos messages
     </string>
 
     <string name="pref_title_display_name">Display name</string>
@@ -108,14 +108,24 @@
     <!-- Example settings for Notifications -->
     <string name="pref_header_notifications">Notifications</string>
 
-    <string name="pref_title_new_message_notifications">New message notifications</string>
+    <string name="pref_title_new_message_notifications">Nouvelles notifications</string>
 
     <string name="pref_title_ringtone">Ringtone</string>
     <string name="pref_ringtone_silent">Silent</string>
 
     <string name="pref_title_vibrate">Vibrate</string>
-    <string name="prompt_password">Send Password rest Email</string>
+    <string name="prompt_password">Envoyer le mot de passe reçu dans Email</string>
+    <string name="mailUs">andymub1@gmail.com</string>
+    <string-array name="spinner_sell">
+        <item>20$</item>
+        <item>40$</item>
+        <item>50$</item>
+        <item>100$</item>
+        <item>200$</item>
+        <item>300$</item>
+        <item>500$</item>
 
+    </string-array>
 </resources>
 
 
