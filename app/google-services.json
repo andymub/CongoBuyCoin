@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "894248597519-raugl5svibqeqtppfakf6u64eplbg24h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "coin.congobuy.com",
+            "certificate_hash": "bae36f7b5e94cb8f42eac72fee9a69383685506d"
+          }
+        },
+        {
           "client_id": "894248597519-fhf8tkqvlbhb5hdocbopt67baem477it.apps.googleusercontent.com",
           "client_type": 3
         }

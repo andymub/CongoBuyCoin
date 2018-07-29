@@ -47,6 +47,8 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.messaging.FirebaseMessagingService;
+import com.google.firebase.messaging.RemoteMessage;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -130,9 +132,7 @@ public class MainActivity extends AppCompatActivity
             fab.setImageResource(R.drawable.ic_lock_open);
             ReadSingleContact();
             SaveSharePref();
-            if (txtUserPhone.getText().toString().isEmpty()){
-            showDialogAddNumber ();
-            }
+
 
         }
         else
@@ -387,6 +387,9 @@ public void showTapTarget(String title, String Descriptif,int ID){
         editor.putString(Number, phoneNumber);
         editor.putString(Email, email);
         editor.commit();
+        if (txtUserPhone.getText().toString().isEmpty()){
+            showDialogAddNumber ();
+        }
     }
     public void SaveSharePrefAdmin(String price) {
 
@@ -565,15 +568,14 @@ public void showTapTarget(String title, String Descriptif,int ID){
                 });
     }
 
-
     public void showDialogAddNumber (){
         LayoutInflater layoutInflaterAndroid = LayoutInflater.from(getApplicationContext());
         View mView = layoutInflaterAndroid.inflate(R.layout.user_input_dialog_box, null);
         AlertDialog.Builder alertDialogBuilderUserInput = new AlertDialog.Builder(new ContextThemeWrapper(MainActivity.this,R.style.myDialog));
         //AlertDialog.Builder alertDialogBuilderUserInput = new AlertDialog.Builder(getApplicationContext(),);
         alertDialogBuilderUserInput.setView(mView);
-       // txtUser.setHint("Entre votre Numéro");
         final EditText userInputDialogEditText = (EditText) mView.findViewById(R.id.userInputDialog);
+        userInputDialogEditText.setHint("Entre votre Numéro");
         alertDialogBuilderUserInput
                 .setCancelable(false)
                 .setPositiveButton("Save", new DialogInterface.OnClickListener() {
