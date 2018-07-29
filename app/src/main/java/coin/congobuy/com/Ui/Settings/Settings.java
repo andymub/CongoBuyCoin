@@ -39,6 +39,26 @@ public class Settings extends AppCompatActivity {
         setContentView(R.layout.settings);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle(getString(R.string.app_name));
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                finish();
+            }
+        });
+
+
+
+        toolbar.setNavigationIcon(R.drawable.ic_arrow_back);
+//
+//        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(getApplicationContext(),MainActivity.class));
+//            }
+//        });
 //        setSupportActionBar(toolbar);
 
         //get firebase auth instance
@@ -85,6 +105,7 @@ public class Settings extends AppCompatActivity {
         remove.setVisibility(View.GONE);
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
+
 
         if (progressBar != null) {
             progressBar.setVisibility(View.GONE);
@@ -241,7 +262,7 @@ public class Settings extends AppCompatActivity {
         signOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                signOut();
+               // signOut();  Todo /!\ j'ai désactivé car l'option est accesible sur le main acvtivity
             }
         });
 
@@ -250,11 +271,17 @@ public class Settings extends AppCompatActivity {
     //sign out method
     public void signOut() {
         auth.signOut();
-        SharedPreferences.Editor editor = sharedpreferences.edit();
-        editor.remove("name"); // will delete key name
-        editor.remove("email"); // will delete key email
-        editor.clear();
-        editor.commit();
+        try {
+            SharedPreferences.Editor editor = sharedpreferences.edit();
+            editor.remove("name"); // will delete key name
+            editor.remove("email"); // will delete key email
+            editor.clear();
+            editor.commit();
+        }
+        catch (Exception e){
+
+        }
+
     }
 
     @Override

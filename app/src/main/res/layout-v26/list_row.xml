@@ -82,7 +82,7 @@
         android:layout_toLeftOf="@+id/imageView2"
         android:layout_toRightOf="@+id/txtprice"
         android:layout_toStartOf="@+id/imageView2"
-        android:text="0.01574 Bitcoin"
+        android:text="X.XXXXXXX7 Bitcoin"
         android:textColor="#343434"
         android:textSize="12dip"
         android:textStyle="bold" />

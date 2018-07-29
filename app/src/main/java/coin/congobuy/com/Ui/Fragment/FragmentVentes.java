@@ -67,7 +67,7 @@ public class FragmentVentes extends Fragment {
                 }
 
 
-                Toast.makeText(getContext(),"" +simpleV,Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(),"La Vente du Bitcoin sera disponible le 25 Octobre 2018",Toast.LENGTH_LONG).show();
             }
         });
 

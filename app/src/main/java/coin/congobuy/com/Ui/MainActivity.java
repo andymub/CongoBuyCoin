@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -34,21 +35,18 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.getkeepsafe.taptargetview.TapTarget;
+import com.getkeepsafe.taptargetview.TapTargetView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.google.firebase.firestore.ListenerRegistration;
-import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -62,7 +60,6 @@ import coin.congobuy.com.Ui.MailUs.MailUsActivity;
 import coin.congobuy.com.Ui.Settings.Settings;
 import coin.congobuy.com.Ui.SigneLogin.LoginActivity;
 import coin.congobuy.com.adapter.MyPagerAdapter;
-
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, AdapterView.OnItemSelectedListener, View.OnClickListener {
     public TextView txtTeamName, txtStock, txtPrice, txtMinToBuy, txtHappyClient,txtUser,txtUserPhone;
@@ -75,12 +72,13 @@ public class MainActivity extends AppCompatActivity
     FragmentPagerAdapter adapterViewPager;
     private Spinner spinner1;
     SharedPreferences sharedpreferences;
+    SharedPreferences sharedpreferencesFotTabView;
     public static final String mypreference = "CBCpref";
     public static final String Number = "numKey";
     public static final String Email = "emailKey";
     public Button btnAchetr, btnVendre;
     public LinearLayout Lvente;
-
+    private Boolean firstTime = null;
     //dialogue button
 
 
@@ -89,8 +87,6 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         //ViewPager vpPager = (ViewPager) findViewById(R.id.vpPager);
@@ -105,6 +101,7 @@ public class MainActivity extends AppCompatActivity
         txtStock = findViewById(R.id.txtstock);
         txtPrice = findViewById(R.id.txtpricecoin);
         txtMinToBuy = findViewById(R.id.txtmin_to_buy);
+        spinner1 =findViewById(R.id.spinner);
         db = FirebaseFirestore.getInstance();
 
         //onclick achat et vente
@@ -133,6 +130,9 @@ public class MainActivity extends AppCompatActivity
             fab.setImageResource(R.drawable.ic_lock_open);
             ReadSingleContact();
             SaveSharePref();
+            if (txtUserPhone.getText().toString().isEmpty()){
+            showDialogAddNumber ();
+            }
 
         }
         else
@@ -147,7 +147,7 @@ public class MainActivity extends AppCompatActivity
             }
 
         }
-
+        getPrice ();//GetPrice
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -157,12 +157,22 @@ public class MainActivity extends AppCompatActivity
                 }
                 else{
                     fab.setImageResource(R.drawable.ic_lock);
-                    DeleteSharePref();
+
+                    //get firebase auth instance
+                    auth = FirebaseAuth.getInstance();
+
+                    //get current user
+                    final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                    auth.signOut();
                     txtUser.setText("");
                     Snackbar.make(view, "Déconnecter", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
-                    finish();
-                    startActivity(getIntent());
+
+                    //finish();
+                    //startActivity(getIntent());
+                    DeleteSharePref();
+
+
                 }
 
             }
@@ -183,12 +193,111 @@ public class MainActivity extends AppCompatActivity
         //set teamInfo
         //todo etoile
         txtTeamName.setText("CongoBuyCoin");
-        txtMinToBuy.setText("10$");
-        setTeam("0.01574 Bitcoin", "0.001584btcoin/ 1$", "25");
+        txtMinToBuy.setText("20$");
+        setTeam("X.XXX5...X Bitcoin", "0.001584btc/ 1$", "215");
 
+        if (isFirstTime()){
+            show_tapFab();
 
+        }
     }
+    private boolean isFirstTime() {
+        if (firstTime == null) {
+            SharedPreferences mPreferences = this.getSharedPreferences("first_time", Context.MODE_PRIVATE);
+            firstTime = mPreferences.getBoolean("firstTime", true);
+            if (firstTime) {
+                SharedPreferences.Editor editor = mPreferences.edit();
+                editor.putBoolean("firstTime", false);
+                editor.commit();
+            }
+        }
+        return firstTime;
+    }
+public void show_tapFab(){
+    showTapTarget("Idenfication du Numéro","Avant tout achat, Vérifier votre numéro est enregisté. Si non Cliquez ici .....",R.id.fab);
+}
 
+public void showTapTarget(String title, String Descriptif,int ID){
+
+    TapTargetView.showFor(this,                 // `this` is an Activity
+//            TapTarget.forView(findViewById(R.id.fab), "Idenfication du Numéro", "Avant tout achat \\n Vérifier votre numéro est enregisté.\\n Si non Cliquez ici .....")
+            TapTarget.forView(findViewById(ID), title, Descriptif)
+                    // All options below are optional
+                    .outerCircleColor(R.color.white)      // Specify a color for the outer circle
+                    .outerCircleAlpha(0.96f)            // Specify the alpha amount for the outer circle
+                    .targetCircleColor(R.color.yellow)   // Specify a color for the target circle
+                    .titleTextSize(20)                  // Specify the size (in sp) of the title text
+                    .titleTextColor(R.color.orange)      // Specify the color of the title text
+                    .descriptionTextSize(10)            // Specify the size (in sp) of the description text
+                    .descriptionTextColor(R.color.whitedivider)  // Specify the color of the description text
+                    .textColor(R.color.blue)            // Specify a color for both the title and description text
+                    .textTypeface(Typeface.SANS_SERIF)  // Specify a typeface for the text
+                    .dimColor(R.color.colorPrimary)            // If set, will dim behind the view with 30% opacity of the given color
+                    .drawShadow(true)                   // Whether to draw a drop shadow or not
+                    .cancelable(false)                  // Whether tapping outside the outer circle dismisses the view
+                    .tintTarget(true)                   // Whether to tint the target view's color
+                    .transparentTarget(false)           // Specify whether the target is transparent (displays the content underneath)
+                    .icon(getResources().getDrawable(R.drawable.ic_lock))                     // Specify a custom drawable to draw as the target
+                    .targetRadius(60),                  // Specify the target radius (in dp)
+            new TapTargetView.Listener() {          // The listener can listen for regular clicks, long clicks or cancels
+                @Override
+                public void onTargetClick(TapTargetView view) {
+                    super.onTargetClick(view);      // This call is optional
+                    //doSomething();
+                    show_four();
+
+                }
+            });
+}
+
+    public void show_four(){
+       // showTapTarget("Idenfication du Numéro","Avant tout achat \n Vérifier votre numéro est enregisté.\n Si non Cliquez ici .....",R.id.txt_user_phone);
+        TapTargetView.showFor(this,                 // `this` is an Activity
+//            TapTarget.forView(findViewById(R.id.fab), "Idenfication du Numéro", "Avant tout achat \\n Vérifier votre numéro est enregisté.\\n Si non Cliquez ici .....")
+                TapTarget.forView(findViewById(R.id.txt_user_phone), "Idenfication du Numéro", "Avant tout achat, Vérifier votre numéro est enregisté. Si non Cliquez ici .....")
+                        // All options below are optional
+                        .outerCircleColor(R.color.white)      // Specify a color for the outer circle
+                        .outerCircleAlpha(0.96f)            // Specify the alpha amount for the outer circle
+                        .targetCircleColor(R.color.yellow)   // Specify a color for the target circle
+                        .titleTextSize(20)                  // Specify the size (in sp) of the title text
+                        .titleTextColor(R.color.orange)      // Specify the color of the title text
+                        .descriptionTextSize(10)            // Specify the size (in sp) of the description text
+                        .descriptionTextColor(R.color.whitedivider)  // Specify the color of the description text
+                        .textColor(R.color.blue)            // Specify a color for both the title and description text
+                        .textTypeface(Typeface.SANS_SERIF)  // Specify a typeface for the text
+                        .dimColor(R.color.colorPrimary)            // If set, will dim behind the view with 30% opacity of the given color
+                        .drawShadow(true)                   // Whether to draw a drop shadow or not
+                        .cancelable(false)                  // Whether tapping outside the outer circle dismisses the view
+                        .tintTarget(true)                   // Whether to tint the target view's color
+                        .transparentTarget(false)           // Specify whether the target is transparent (displays the content underneath)
+                        .icon(getResources().getDrawable(R.drawable.ic_add_number_missed))                     // Specify a custom drawable to draw as the target
+                        .targetRadius(60),                  // Specify the target radius (in dp)
+                new TapTargetView.Listener() {          // The listener can listen for regular clicks, long clicks or cancels
+                    @Override
+                    public void onTargetClick(TapTargetView view) {
+                        super.onTargetClick(view);      // This call is optional
+                        //doSomething();
+                    }
+                });
+
+        //        new GuideView.Builder(this)
+//                .setTitle("Idenfication du Numéro")
+//                .setContentText("Avant tout achat \n Vérifier votre numéro est enregisté.\n Si non Cliquez ici .....")
+//                .setGravity(GuideView.Gravity.auto) //optional
+//                .setDismissType(GuideView.DismissType.anywhere) //optional - default GuideView.DismissType.targetView
+//                .setTargetView(spinner1)
+//                .setContentTextSize(12)//optional
+//                .setTitleTextSize(14)//optional
+//                .setGuideListener(new GuideView.GuideListener() {
+//                    @Override
+//                    public void onDismiss(View view) {
+//                        //TODO ...
+//                        // show_tree();
+//                    }
+//                })
+//                .build()
+//                .show();
+    }
 
     private void setTeam(String Stock, String price, String txtHappyClients) {
         txtStock.setText(Stock);
@@ -236,6 +345,8 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_commandes_plus) {
+            Intent intent_CommandePls = new Intent(this, MailUsActivity.class);
+            startActivity(intent_CommandePls);
             // Handle the camera action
         } else if (id == R.id.nav_confiances) {
 
@@ -293,10 +404,8 @@ public class MainActivity extends AppCompatActivity
         editor.clear();
         editor.commit();
     }
-    private void ReadSingleContact() {
-
-        DocumentReference user = db.collection("User").document(txtUser.getText().toString());
-        DocumentReference price = db.collection("Admin").document("andy");
+    private  void getPrice (){
+        DocumentReference price = db.collection("Admin").document("Sddqqzwyqg6SB5E57XIf");
         price.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -314,7 +423,43 @@ public class MainActivity extends AppCompatActivity
 
                     if (doc.get("Prix")!=null) {
                         String num = doc.get("Prix").toString();
+                        //whiteUserNumer(txtUser.getText().toString(),txtUserPhone.getText().toString());
+                        txtPrice.setText(num+" BTC/20$");
                         SaveSharePrefAdmin(num);
+                    }
+
+                }
+
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+
+            }
+        });
+    }
+    private void ReadSingleContact() {
+
+        DocumentReference user = db.collection("User").document(txtUser.getText().toString());
+        DocumentReference price = db.collection("Admin").document("Sddqqzwyqg6SB5E57XIf");
+        price.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+
+                    DocumentSnapshot doc = task.getResult();
+
+                    StringBuilder fieldsprice = new StringBuilder("");
+
+                    //fields.append("Name: ").append(doc.get("Name"));
+
+                    //fields.append("\nEmail: ").append(doc.get("Email"));
+
+                    fieldsprice.append("\nPhone: ").append(doc.get("Prix"));
+
+                    if (doc.get("Prix")!=null) {
+                        String num = doc.get("Prix").toString();
+                        txtPrice.setText(num+" BTC/20$");
                         //whiteUserNumer(txtUser.getText().toString(),txtUserPhone.getText().toString());
                     }
 
@@ -385,7 +530,6 @@ public class MainActivity extends AppCompatActivity
         newUserNumer.put("achat100", "");
         newUserNumer.put("achat200", "");
         newUserNumer.put("achat300", "");
-        newUserNumer.put("achat400", "");
         newUserNumer.put("achat500", "");
 
         db.collection("User").document(email).set(newUserNumer)
@@ -428,16 +572,25 @@ public class MainActivity extends AppCompatActivity
         AlertDialog.Builder alertDialogBuilderUserInput = new AlertDialog.Builder(new ContextThemeWrapper(MainActivity.this,R.style.myDialog));
         //AlertDialog.Builder alertDialogBuilderUserInput = new AlertDialog.Builder(getApplicationContext(),);
         alertDialogBuilderUserInput.setView(mView);
-
+       // txtUser.setHint("Entre votre Numéro");
         final EditText userInputDialogEditText = (EditText) mView.findViewById(R.id.userInputDialog);
         alertDialogBuilderUserInput
                 .setCancelable(false)
                 .setPositiveButton("Save", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialogBox, int id) {
-                        // ToDo get user input here
-                        whiteUserNumer(txtUser.getText().toString(),userInputDialogEditText.getText().toString());
-                        ReadSingleContact();
-                       // Toast.makeText(MainActivity.this,"hey",Toast.LENGTH_SHORT).show();
+                        if (userInputDialogEditText.getText().toString().trim().isEmpty()){
+                            Toast.makeText(getApplicationContext(),"Numéro incorrecte, Cliquez sur \'My Phone number'",Toast.LENGTH_LONG).show();
+                            showDialogAddNumber ();
+                        }else if(userInputDialogEditText.getText().toString().trim().length()<10){
+                            Toast.makeText(getApplicationContext(),"Numéro incorrecte, Cliquez sur \'My Phone number'",Toast.LENGTH_LONG).show();
+                            showDialogAddNumber ();
+                        }
+                        else {
+                            // ToDo get user input here
+                            whiteUserNumer(txtUser.getText().toString(), userInputDialogEditText.getText().toString());
+                            ReadSingleContact();
+                            // Toast.makeText(MainActivity.this,"hey",Toast.LENGTH_SHORT).show();
+                        }
                     }
                 })
 

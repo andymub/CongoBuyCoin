@@ -31,8 +31,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
+import coin.congobuy.com.PhoneState.AppStatus;
 import coin.congobuy.com.R;
-import coin.congobuy.com.Ui.MainActivity;
 
 public class FragmentAchats extends Fragment implements View.OnClickListener {
     private String title;
@@ -77,67 +77,75 @@ public class FragmentAchats extends Fragment implements View.OnClickListener {
         Button btnAchat= view.findViewById(R.id.btnachat);
         Achatspinner=view.findViewById(R.id.spinner);
         editText_price=view.findViewById(R.id.editText_price);
-        editText_price.setText(sharedpreferences.getString("Prix", "0.0025"));
+        editText_price.setText(sharedpreferences.getString("Price", "0.0025"));
         Achatspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parent, View view,
                                        int position, long id) {
-                String v=sharedpreferences.getString("Prix", "0.0025");
-                Double value = Double.parseDouble(v);
+                String v=sharedpreferences.getString("Price", "0.0025");
+
+
+                double valu5e = Double.parseDouble(v.trim());
+                int f=1;
+//                Float r= Float.parseFloat(v);
+                double value = Double.parseDouble(v);
+
+
+                ;
 
                 if (position==1){//40
 
                     value=(value*2);
-                    editText_price.setText(value.toString());
+                    editText_price.setText(String.valueOf(value));
                     pricebit="achat40";
-                    bitcoinvalue=value.toString();
+                    bitcoinvalue=String.valueOf(value);
 
                 }
                else if (position==0){//20
                    value=(value*1);
-                    editText_price.setText(value.toString());
+                    editText_price.setText(String.valueOf(value));
                     pricebit="achat20";
-                    bitcoinvalue=value.toString();
+                    bitcoinvalue=String.valueOf(value);
 
                 }
                 else if (position==2){//50
                     value=(value*2.5);
-                    editText_price.setText(value.toString());
+                    editText_price.setText(String.valueOf(value));
                     pricebit="achat50";
-                    bitcoinvalue=value.toString();
+                    bitcoinvalue=String.valueOf(value);
 
                 }
                 else if (position==3){//100
                     value=(value*5);
-                    editText_price.setText(value.toString());
+                    editText_price.setText(String.valueOf(value));
                     pricebit="achat100";
-                    bitcoinvalue=value.toString();
+                    bitcoinvalue=String.valueOf(value);
 
                 }else if (position==4){//200
                     value=(value*10);
-                    editText_price.setText(value.toString());
+                    editText_price.setText(String.valueOf(value));
                     pricebit="achat200";
-                    bitcoinvalue=value.toString();
+                    bitcoinvalue=String.valueOf(value);
 
                 }else if (position==5){//300
                     value=(value*15);
-                    editText_price.setText(value.toString());
+                    editText_price.setText(String.valueOf(value));
                     pricebit="achat300";
-                    bitcoinvalue=value.toString();
+                    bitcoinvalue=String.valueOf(value);
 
                 }else if (position==6){//400
                     value=(value*20);
-                    editText_price.setText(value.toString());
-                    pricebit="achat400";
-                    bitcoinvalue=value.toString();
-
-                }
-                else if (position==7){//500
-                    value=(value*25);
-                    editText_price.setText(value.toString());
+                    editText_price.setText(String.valueOf(value));
                     pricebit="achat500";
-                    bitcoinvalue=value.toString();
+                    bitcoinvalue=String.valueOf(value);
 
                 }
+//                else if (position==7){//500
+//                    value=(value*25);
+//                    editText_price.setText(String.valueOf(value));
+//                    pricebit="achat500";
+//                    bitcoinvalue=String.valueOf(value);
+//
+//                }
 
 
             }
@@ -152,22 +160,39 @@ public class FragmentAchats extends Fragment implements View.OnClickListener {
         btnAchat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String user="",phone="";
-                String [] valeurAchat ={pricebit,bitcoinvalue};
 
-                if (sharedpreferences.contains(Email)) {
-                    user=(sharedpreferences.getString(Email, "MyEmail"));
 
-                } if (sharedpreferences.contains(Number)) {
-                    phone=(sharedpreferences.getString(Number, "000"));
+               //
+                if (AppStatus.getInstance(getContext()).isOnline()) {
+                    /**
+                     * Internet is available, Toast It!
+                     */
+                    String user="",phone="";
+                    String [] valeurAchat ={pricebit,bitcoinvalue};
+
+                    if (sharedpreferences.contains(Email)) {
+                        user=(sharedpreferences.getString(Email, "MyEmail"));
+
+                    } if (sharedpreferences.contains(Number)) {
+                        phone=(sharedpreferences.getString(Number, "000"));
+                    }
+
+                    if ((sharedpreferences.getString(Number, ""))!=null &&(sharedpreferences.getString(Number, "")!=""))
+                    {
+                        addNewCommande(user,phone,valeurAchat);
+                    }
+                    else {
+                        Toast.makeText(getContext(),"Identifiez-vous avant tout Achat" ,Toast.LENGTH_SHORT).show();
+                    }
+                    //Toast.makeText(getContext(), "WiFi/Mobile Networks Connected!", Toast.LENGTH_SHORT).show();
+                } else {
+                    /**
+                     * Internet is NOT available, Toast It!
+                     */
+                    Toast.makeText(getContext(), "Ooops! No WiFi/Mobile Networks Connected!", Toast.LENGTH_SHORT).show();
+
                 }
 
-                if ((sharedpreferences.getString(Number, ""))!=null ||(sharedpreferences.getString(Number, "")!=""))
-                {
-                    addNewCommande(user,phone,valeurAchat);
-                }
-
-               // Toast.makeText(getContext(),"" +simpleV,Toast.LENGTH_SHORT).show();
 
 
             }
@@ -200,7 +225,7 @@ public class FragmentAchats extends Fragment implements View.OnClickListener {
 
             Map<String, Object> newPurshase = new HashMap<>();
 
-            newPurshase.put("Etat", "En cours de validation");
+            newPurshase.put("Etat", "+ "+valeur[1]+" Bitcoin en cours de validation...");
 
 
             db.collection("Achats").document(user+"--"+number+"--"+valeur[0]).set(newPurshase)
@@ -225,7 +250,7 @@ public class FragmentAchats extends Fragment implements View.OnClickListener {
 
                         public void onFailure(@NonNull Exception e) {
 
-                            Toast.makeText(getContext(), "ERROR" + e.toString(),
+                            Toast.makeText(getContext(), "Problème " + e.toString(),
 
                                     Toast.LENGTH_SHORT).show();
 
@@ -286,8 +311,7 @@ public class FragmentAchats extends Fragment implements View.OnClickListener {
 
                     public void onSuccess(Void aVoid) {
 
-                        Toast.makeText(getContext(), "Updated Successfully",
-
+                        Toast.makeText(getContext(), "Votre Commande a été Reçue",
                                 Toast.LENGTH_SHORT).show();
 
                     }
