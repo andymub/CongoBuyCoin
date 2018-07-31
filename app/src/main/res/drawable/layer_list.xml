@@ -25,6 +25,6 @@
         android:left="@dimen/salad_left">
         <bitmap
             android:gravity="left|start|bottom"
-            android:src="@drawable/images"/>
+            android:src="@drawable/congo_buy_coin"/>
     </item>
 </layer-list>

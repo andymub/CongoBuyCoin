@@ -41,7 +41,7 @@
             android:layout_width="50dip"
             android:layout_height="50dip"
             android:background="@android:color/transparent"
-            android:src="@drawable/images" />
+            android:src="@drawable/congo_buy_coin" />
 
     </LinearLayout>
 

@@ -126,6 +126,63 @@
         <item>500$</item>
 
     </string-array>
+
+    <string name="title_activity_welcome">Home Screen</string>
+    <string name="next">SUIVANT</string>
+    <string name="skip">J\'AI TOUT COMPRIS</string>
+    <string name="start">j\'ACCEPTE</string>
+
+    <string name="slide_1_title">Welcome to Congo Buy Coin!</string>
+    <string name="slide_1_desc">The easiest way to order Bitcoin in Dem. Rep. of Congo with Local electronic Money!</string>
+
+    <string name="slide_2_title">Order Bitcoin</string>
+    <string name="slide_2_desc">Order your amount in bitcoin and then the sales department will contact you for money transfer!</string>
+
+    <string name="slide_3_title">Get your BitCoin</string>
+    <string name="slide_3_desc">Your wallet\'s adress will be asked for the transfer of Bitcoin!</string>
+
+    <string name="slide_4_title">CONDITIONS GÉNÉRALES DE VENTE</string>
+    <string name="slide_4_desc"><b>1.1 CONSIDÉRATIONS GÉNÉRALES</b>\n\n
+<b>1.1</b> Les présentes Conditions générales de vente (« Conditions ») s\'appliquent lorsqu\’en tant que client,
+        vous (Vous) passez une commande sur CongoBuyCoin (CBC).
+        \n Cet accord de vente est conclu entre vous et CBC.\n
+Les conditions ne sont applicables que pour vous, en tant que client effectuant des commandes sur cette application de vente.\n\n
+<b>1.2</b> CBC décline toute responsabilité quant à une quelconque erreur de frappe lors de votre virement airtelMoney-Mpesa-OrangeMoney vers Notre service Vente.\n
+CBC décline toute responsabilité quant à une quelconque erreur de frappe lors de votre envoie de l\'adresse de votre portefeuille.\n
+CBC n\'est pas responsable de tout erreur commise par le client.\n\n
+<b>2. CONTRAT ET COMMANDE</b>\n\n
+<b>2.1</b>
+Un contrat d\'achat est conclu lorsque CBC a confirmé votre commande et que vous avez reçu la confirmation de commande par SMS ou Appel du service de vente.\n
+        CBC vous conseille de conserver l\’sms de confirmation de virement de la monnaie électronique de votre commande avant de recevoir vos bitcoins,\n
+        Ces informations peuvent vous être demandées lors de la confirmation de votre achat sur CBC.\n\n
+
+        <b>3. COORDONNÉES DU CLIENT ET AUTRES INFORMATIONS</b>\n\n
+<b>3.1</b>
+Lorsque vous créez votre compte utilisateur et/ou effectuez une commande sur CBC,\n
+        il vous est demandé de fournir certains renseignements personnels.\n
+        Vous confirmez que les informations fournies sont exactes et complètes et vous engagez à assumer vos responsabilités en cas d\’erreurs de saisie dans le formulaire.\n\n
+
+<b>4. PRIX, FRAIS ET PAIEMENT</b>\n\n
+
+<b>4.1</b>
+Lors de la commande, seuls les prix indiqués sur le site sont appliqués.
+        \nLes prix sont en DOLLARS et incluent la TVA ,
+        \nles frais d\’expédition et les frais liés aux transactions entre portefeuilles .\n\n
+
+<b>5. PROMOTIONS ET OFFRES</b>\n\n
+CBC organise à certaines occasions des promotions commerciales sur son site de vente.\n
+        CBC se réserve le droit, à tout moment, de mettre fin à ces campagnes.\n\n
+
+<b>7.DROIT DE RÉTRACTATION</b>\n\n
+
+<b>7.1</b>
+En cas d\’annulation d\’une commande, vous devez envoyer un message clair à CBC.
+        \n Vous fournirez dans votre message votre Email, le numéro de téléphone et notamment montant.
+</string>
+
+
+    <string name="play_again_desc">To see the welcome slider again, goto Settings -> apps -> welcome slider -> clear data</string>
+    <string name="play_again">Play Again</string>
 </resources>
 
 

@@ -81,6 +81,7 @@ public class MainActivity extends AppCompatActivity
     public Button btnAchetr, btnVendre;
     public LinearLayout Lvente;
     private Boolean firstTime = null;
+    private Boolean dialogueForFistTime=false;
     //dialogue button
 
 
@@ -111,7 +112,12 @@ public class MainActivity extends AppCompatActivity
         txtUserPhone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showDialogAddNumber();
+                if (txtUserPhone.getText().length()<10){
+                   // Toast.makeText(getApplicationContext(),"yuhuu 2",Toast.LENGTH_LONG).show();
+                showDialogAddNumber();}
+                else {
+                    Toast.makeText(getApplicationContext(),"Vous avez déjà un numéro",Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -387,9 +393,7 @@ public void showTapTarget(String title, String Descriptif,int ID){
         editor.putString(Number, phoneNumber);
         editor.putString(Email, email);
         editor.commit();
-        if (txtUserPhone.getText().toString().isEmpty()){
-            showDialogAddNumber ();
-        }
+
     }
     public void SaveSharePrefAdmin(String price) {
 
@@ -497,11 +501,20 @@ public void showTapTarget(String title, String Descriptif,int ID){
                     if (doc.get("number")!=null) {
                         String num = doc.get("number").toString();
                         txtUserPhone.setText(num);
+                        //Toast.makeText(getApplicationContext(),"yuhuu 111",Toast.LENGTH_LONG).show();
                         SaveSharePref();
                         //whiteUserNumer(txtUser.getText().toString(),txtUserPhone.getText().toString());
+                        if ((txtUserPhone.getText().toString().isEmpty()) && !(dialogueForFistTime)){
+
+                            dialogueForFistTime=true;
+                           // Toast.makeText(getApplicationContext(),"yuhuu 1",Toast.LENGTH_LONG).show();
+                            showDialogAddNumber (); //todo---
+                        }
+
                     }
-                    else {
+                    else if (!(dialogueForFistTime)) {
                         showDialogAddNumber ();
+                      //  Toast.makeText(getApplicationContext(),"yuhuu",Toast.LENGTH_LONG).show();
                     }
 
                 }
@@ -575,17 +588,23 @@ public void showTapTarget(String title, String Descriptif,int ID){
         //AlertDialog.Builder alertDialogBuilderUserInput = new AlertDialog.Builder(getApplicationContext(),);
         alertDialogBuilderUserInput.setView(mView);
         final EditText userInputDialogEditText = (EditText) mView.findViewById(R.id.userInputDialog);
+        Toast.makeText(getApplicationContext(),"Votre Numéro de téléphone SVP...",Toast.LENGTH_LONG).show();
         userInputDialogEditText.setHint("Entre votre Numéro");
         alertDialogBuilderUserInput
                 .setCancelable(false)
                 .setPositiveButton("Save", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialogBox, int id) {
+                        if(!(txtUserPhone.getText().toString().isEmpty())){
+                            dialogBox.cancel();
+                        }
                         if (userInputDialogEditText.getText().toString().trim().isEmpty()){
                             Toast.makeText(getApplicationContext(),"Numéro incorrecte, Cliquez sur \'My Phone number'",Toast.LENGTH_LONG).show();
                             showDialogAddNumber ();
+                           // Toast.makeText(getApplicationContext(),"yuhuu 6",Toast.LENGTH_LONG).show();
                         }else if(userInputDialogEditText.getText().toString().trim().length()<10){
                             Toast.makeText(getApplicationContext(),"Numéro incorrecte, Cliquez sur \'My Phone number'",Toast.LENGTH_LONG).show();
                             showDialogAddNumber ();
+                           // Toast.makeText(getApplicationContext(),"yuhuu 5",Toast.LENGTH_LONG).show();
                         }
                         else {
                             // ToDo get user input here
@@ -617,6 +636,7 @@ public void showTapTarget(String title, String Descriptif,int ID){
                     //todo your sell
                 }
                 else {
+                   // Toast.makeText(getApplicationContext(),"yuhuu 4",Toast.LENGTH_LONG).show();
                     showDialogAddNumber ();
                 }
             } break;
@@ -626,6 +646,7 @@ public void showTapTarget(String title, String Descriptif,int ID){
                     //todo purchase
                 }
                 else {
+                    //Toast.makeText(getApplicationContext(),"yuhuu 3",Toast.LENGTH_LONG).show();
                     showDialogAddNumber ();
                 }
             }
