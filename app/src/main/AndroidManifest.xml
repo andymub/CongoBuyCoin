@@ -37,7 +37,8 @@
         <activity
             android:name=".Ui.Settings.Settings"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Ui.MailUs.MailUsActivity" />
+        <activity android:name=".Ui.MailUs.MailUsActivity"
+            android:label="@string/app_name"/>
 
         <service android:name=".Ui.Notification.NotificationService">
             <intent-filter>

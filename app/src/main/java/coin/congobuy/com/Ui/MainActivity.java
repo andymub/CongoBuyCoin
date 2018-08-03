@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -366,7 +367,20 @@ public void showTapTarget(String title, String Descriptif,int ID){
 
         }
         else if (id == R.id.nav_share) {
+//        String urlGoolgePLayCBC ="http://www.google.com";
+//            Intent urlGPlay = new Intent(Intent.ACTION_VIEW);
+//            urlGPlay.setData(Uri.parse(urlGoolgePLayCBC));
+//            startActivity(urlGPlay);
+            Intent share = new Intent(android.content.Intent.ACTION_SEND);
+            share.setType("text/plain");
+            share.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
 
+            // Add data to the intent, the receiving app will decide
+            // what to do with it.
+            share.putExtra(Intent.EXTRA_SUBJECT, "CONGO BUY COIN");
+            share.putExtra(Intent.EXTRA_TEXT, "http://www.codeofaninja.com");
+
+            startActivity(Intent.createChooser(share, "Share link!"));
 
         }
 

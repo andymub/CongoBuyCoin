@@ -7,7 +7,6 @@
     android:orientation="vertical">
 
     <View
-        android:id="@+id/view5"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/colorAccent" />
@@ -27,7 +26,6 @@
         android:layout_gravity="center" />
 
     <View
-        android:id="@+id/view7"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/colorAccent" />
@@ -88,16 +86,17 @@
 
         <Button
             android:id="@+id/btnachat"
+            style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/editText_price"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="24dp"
-            android:background="@drawable/buttonstyle"
-            android:text="Acheter" />
+            android:text="Acheter"
+            android:textColor="@color/colorPrimary"
+            android:textColorLink="@color/bg_register" />
 
         <TextView
-            android:id="@+id/textView16"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"

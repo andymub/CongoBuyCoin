@@ -8,7 +8,6 @@
     android:orientation="vertical">
 
     <View
-        android:id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/colorAccent" />
@@ -28,7 +27,6 @@
         android:layout_gravity="center" />
 
     <View
-        android:id="@+id/view2"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/colorAccent" />
@@ -49,7 +47,6 @@
             android:textColor="@color/common_google_signin_btn_text_dark_pressed" />
 
         <TextView
-            android:id="@+id/textView12v2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_above="@+id/imageButton"
@@ -111,13 +108,14 @@
 
         <Button
             android:id="@+id/btnvendre"
+            style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/txtNumVente"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="5dp"
-            android:background="@drawable/buttonstyle"
-            android:text="Vendre" />
+            android:text="Vendre"
+            android:textColor="@color/colorPrimary" />
 
         <EditText
             android:id="@+id/txtNumVente"
@@ -142,7 +140,6 @@
             android:textColor="@color/common_google_signin_btn_text_dark_pressed" />
 
         <TextView
-            android:id="@+id/textView17"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView15"

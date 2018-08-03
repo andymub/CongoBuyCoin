@@ -37,7 +37,6 @@
         android:background="@color/colorAccent" />
 
     <TextView
-        android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:autoLink="none"
@@ -88,7 +87,6 @@
             android:padding="3dip">
 
             <ImageView
-                android:id="@+id/list_image"
                 android:layout_width="50dip"
                 android:layout_height="50dip"
                 android:background="@android:color/transparent"
@@ -216,7 +214,6 @@
             android:textSize="8sp" />
 
         <TextView
-            android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/textView5"
@@ -234,7 +231,6 @@
         android:layout_height="wrap_content">
 
         <android.support.v4.view.PagerTabStrip
-            android:id="@+id/pager_header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="top"

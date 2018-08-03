@@ -7,7 +7,6 @@
     android:orientation="vertical">
 
     <View
-        android:id="@+id/view3"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/colorAccent" />
@@ -26,13 +25,13 @@
         android:layout_gravity="center" />
 
     <View
-        android:id="@+id/view4"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/colorAccent" />
 
     <ImageButton
         android:id="@+id/btnlistSync"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -56,7 +55,6 @@
                 android:orientation="vertical">
 
                 <LinearLayout
-                    android:id="@+id/lyatout0"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="3dp"
@@ -96,7 +94,6 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/lyatout1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="3dp"
@@ -136,7 +133,6 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/lyatout2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="3dp"
@@ -176,7 +172,6 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/lyatout3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="3dp"
@@ -216,7 +211,6 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/lyatout4"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="3dp"
@@ -256,7 +250,6 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/lyatout5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="3dp"
@@ -296,7 +289,6 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/lyatout6"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="3dp"
@@ -336,7 +328,6 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/lyatout7"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="3dp"
